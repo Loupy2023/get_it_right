@@ -2,3 +2,4 @@ numpy
 joblib
 fastapi
 uvicorn
+tensorflow
