@@ -34,9 +34,7 @@ async def receive_image(file: bytes = File(...)):#: UploadFile=File(...)): as it
     '''
     Receiving and decoding the image
     '''
-    # contents = await file.read()
-    # nparr = np.fromstring(contents, np.uint8)
-    # Uploaded_Image = cv2.imdecode(nparr, cv2.IMREAD_COLOR) # type(cv2_img) => numpy.ndarray
+
     with open('data/image.jpg','wb') as image:
         image.write(file)
         image.close()
@@ -51,7 +49,8 @@ def predict_one():
     Else Return what type of waste it is
     '''
     # Import predict et display and return a prediction
-    img="image_loup.jpg"
+    img= 'data/image.jpg'
+
     return predict( img
                     ,app.state.model_binary
                     ,app.state.model_multiclass)
