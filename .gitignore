@@ -3,4 +3,3 @@ raw_data/
 __pycache__
 *.ipynb
 detection_model_by_fbl.h5
-multiclass.h5
