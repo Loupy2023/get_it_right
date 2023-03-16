@@ -3,3 +3,5 @@ joblib
 fastapi
 uvicorn
 tensorflow
+requests
+requests_toolbelt

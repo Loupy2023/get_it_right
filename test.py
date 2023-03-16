@@ -1,10 +1,12 @@
-from predict import predict
-from display import draw_img
+import requests
+from requests_toolbelt.multipart.encoder import MultipartEncoder
 
-# Test your functions before putting them on a api
 
-test_image = "Path to my imge"  #.jpg format ?
-prediction = predict(test_image)
-to_print = draw_img(prediction)
+url = "http://127.0.0.1:8000/upload_image"
 
-print(to_print)
+filename = "image_loup.jpg"
+m = MultipartEncoder(
+        fields={'file': ('filename', open(filename, 'rb'), 'image/jpeg')}
+    )
+r = requests.post(url, data=m, headers={'Content-Type': m.content_type}, timeout = 20_000)
+assert r.status_code == 20
